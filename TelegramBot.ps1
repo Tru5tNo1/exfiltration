@@ -18,9 +18,9 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 # CONFIG - Setting Global Variable ###########################################################################################################
 
-$lambda  = "disagio.delaurentis.workers.dev"
-$token   = '5157005211:AAHCliP0jJpJM5-RYYkso0pzbSQdMy9gIJY'
-$chat_id = '176932540'
+$lambda  = ""
+$token   = ''
+$chat_id = ''
 $usra    = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36 Edg/100.0.1185.39"    
 
 ##############################################################################################################################################
@@ -150,3 +150,34 @@ while($true) {
 # Fine ciclo continuo
 }
 
+
+<#
+########################################################################################################
+/**
+ * An object with different URLs to fetch
+ * @param {Object} ORIGINS
+ */
+const ORIGINS = {
+  '          ': 'api.telegram.org',
+  '          ': 'www.google.com',
+};
+
+function handleRequest(request) {
+  const url = new URL(request.url);
+  // Check if incoming hostname is a key in the ORIGINS object
+  if (url.hostname in ORIGINS) {
+    const target = ORIGINS[url.hostname];
+    url.hostname = target;
+    // If it is, proxy request to that third party origin
+    return fetch(url.toString(), request);
+  }
+
+  // Otherwise, process request as normal
+  return fetch(request);
+}
+
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request));
+});
+########################################################################
+#>

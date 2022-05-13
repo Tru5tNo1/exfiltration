@@ -165,7 +165,7 @@ $a.RedirectStandardOutput=$true;
 $a.WindowStyle='Hidden';
 $a.CreateNoWindow=$true;
 $pr=[System.Diagnostics.Process]::Start($a);
-$pr.WaitForExit()
+# $pr.WaitForExit()
 
 }
 

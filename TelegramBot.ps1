@@ -19,9 +19,9 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 #####################################################################################################################################################
 # CONFIG - Setting Global Variable 
 
-$lambda  = "disagio.delaurentis.workers.dev"
-$token   = '5157005211:AAHCliP0jJpJM5-RYYkso0pzbSQdMy9gIJY'
-$chat_id = '176932540'
+$lambda  = ""
+$token   = ''
+$chat_id = ''
 $usra    = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36 Edg/100.0.1185.39"    
 
 
